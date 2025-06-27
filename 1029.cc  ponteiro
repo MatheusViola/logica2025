@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int fib(int n, int* chamadas) {
+    (*chamadas)++;
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fib(n - 1, chamadas) + fib(n - 2, chamadas);
+}
+
+int main() {
+    int N;
+    cin >> N;
+    while (N--) {
+        int x;
+        cin >> x;
+        int chamadas = -1; // Corrige a contagem da primeira chamada
+        int resultado = fib(x, &chamadas);
+        cout << "fib(" << x << ") = " << chamadas << " calls = " << resultado << endl;
+    }
+    return 0;
+}
